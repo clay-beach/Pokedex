@@ -1,0 +1,52 @@
+.card {
+    cursor: auto;
+
+    &:hover {
+        border-color: rgba(16, 123, 106, 0.4);
+    }
+
+    &-clear {
+        position: absolute;
+        left: 50%;
+        bottom: -18px;
+        margin-left: -18px;
+        text-align: center;
+        color: #000;
+        font-size: 16px;
+        background: #f8f8f8;
+        border: 1px solid #ffffff;
+        border-radius: 50%;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            border-color: rgba(16, 123, 106, 0.3);
+        }
+    }
+
+    &-nickname {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px dashed #333;
+        font-size: 32px;
+        width: 80%;
+        max-width: 100%;
+        font-weight: 500;
+        text-transform: capitalize;
+
+        &:focus {
+            outline: none;
+        }
+
+        @media (max-width: 930px) {
+            font-size: 24px;
+        }
+    }
+}

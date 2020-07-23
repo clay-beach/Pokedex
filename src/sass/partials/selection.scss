@@ -1,0 +1,27 @@
+.selection {
+    @media (max-width: 930px) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-item {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 41px;
+
+        @media (max-width: 930px) {
+            margin-bottom: 50px;
+        }
+
+        img {
+            width: 100%;
+            opacity: 0.6;
+
+            &.empty {
+                opacity: 0.2;
+                filter: grayscale(1);
+            }
+        }
+    }
+}

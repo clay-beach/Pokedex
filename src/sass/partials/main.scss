@@ -1,0 +1,205 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: $app-bg;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+    padding: 0 $gutter;
+
+    @media (max-width: 930px) {
+        padding: 0 ($gutter / 2);
+    }
+}
+
+.nav-open {
+    overflow: hidden;
+
+    .main-img {
+        z-index: 6;
+    }
+}
+
+.main {
+    position: relative;
+    height: 100%;
+
+    &-img {
+        @include flip-bg();
+        position: fixed;
+        opacity: 0.06;
+        left: 0;
+        top: 80px;
+        height: calc(100vh - 80px);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &-row {
+        position: relative;
+        display: flex;
+        height: 100%;
+        padding-top: 70px;
+        padding-bottom: 100px;
+        z-index: 2;
+
+        @media (max-width: 930px) {
+            flex-direction: column;
+            padding-top: 100px;
+        }
+    }
+
+    &-col {
+        height: 100%;
+
+        &__l {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @media (max-width: 930px) {
+                width: 100%;
+                display: block;
+                margin-bottom: 24px;
+            }
+
+            h2 {
+                margin-top: 40% !important;
+
+                @media (max-width: 930px) {
+                    font-size: 32px;
+                    margin-top: 0 !important;
+                }
+            }
+
+            h3 {
+                margin-top: 100% !important;
+
+                @media (max-width: 930px) {
+                    display: none;
+                }
+            }
+        }
+
+        &__m {
+            width: 60%;
+            display: grid;
+            grid-template-columns: 31% 31% 31%;
+            grid-gap: 60px 3%;
+            grid-auto-rows: 215px;
+
+            @media (max-width: 930px) {
+                width: 100%;
+                grid-template-columns: 48% 48%;
+                grid-gap: 60px 4%;
+                order: 3;
+            }
+        }
+
+        &__r {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+
+            @media (max-width: 930px) {
+                width: 100%;
+            }
+        }
+    }
+
+    &-count {
+        text-align: center;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 100%;
+        color: #333;
+    }
+
+    .nav-link {
+        background: rgba(16, 123, 106, 0.6);
+        border: 1px solid #FFFFFF;
+        box-sizing: border-box;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05),
+            -10px -10px 4px rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        padding: 18px 12px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%;
+        transition: 0.3s;
+
+        &:hover {
+            opacity: 0.8;
+
+            span:last-of-type {
+                transform: translatex(5px);
+            }
+        }
+
+        a {
+            text-align: center;
+            color: $white;
+            text-decoration: none;
+
+            span {
+                display: block;
+
+                &:last-of-type {
+                    font-size: 24px;
+                    transition: ease-in-out transform 0.3s;
+                }
+            }
+        }
+
+        &.btn {
+            @media (max-width: 930px) {
+                position: fixed;
+                bottom: 40px;
+                right: 40px;
+            }
+        }
+    }
+}
+
+
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.page-enter,
+.page-leave-to {
+    opacity: 0;
+    transform: translatey(300px);
+}
+
+@keyframes flickerAnimation {
+
+    /* flame pulses */
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.loading {
+    opacity: 1;
+    animation: flickerAnimation 0.8s infinite;
+}
